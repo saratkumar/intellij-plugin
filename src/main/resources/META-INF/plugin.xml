@@ -1,0 +1,14 @@
+<idea-plugin>
+    <id>com.example.codechecker</id>
+    <name>AI Code Checker</name>
+    <version>1.0</version>
+    <vendor email="msaratkumar3@gmail.com">Sarath Kumar</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+<!--        <localInspection language="JAVA" implementationClass="org.example.inspections.MyCustomInspection"/>-->
+        <localInspection language="JAVA" shortName="LongMethodInspection" implementationClass="org.example.inspections.LongMethodInspection" groupName="General Inspection"/>
+    </extensions>
+</idea-plugin>
