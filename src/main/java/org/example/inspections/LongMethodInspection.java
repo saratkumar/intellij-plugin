@@ -3,8 +3,10 @@ package org.example.inspections;
 import com.intellij.codeInspection.*;
 import com.intellij.psi.*;
 import com.intellij.psi.util.PsiTreeUtil;
+import org.example.ollama.OllamaClient;
 import org.jetbrains.annotations.NotNull;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,4 +77,32 @@ public class LongMethodInspection extends LocalInspectionTool {
     public @NotNull String getGroupDisplayName() {
         return "General Inspection"; // This specifies the group in which the inspection will appear
     }
+
+//    @Override
+//    public @NotNull PsiElementVisitor buildVisitor(@NotNull ProblemsHolder holder, boolean isOnTheFly) {
+//        return new JavaElementVisitor() {
+//            @Override
+//            public void visitMethod(PsiMethod method) {
+//                String code = method.getText().replace("\n", " ");
+//                holder.registerProblem(method, "AI is analyzing the code...", ProblemHighlightType.INFORMATION);
+//                // Run the request asynchronously (on a background thread)
+//                new Thread(() -> {
+//                    // Call OllamaClient to analyze the code
+//                    String response = OllamaClient.analyzeCode(code);
+//                    System.out.println(response +"____Resopone");
+//                    // Once the response is received, update the UI on the EDT thread
+//                    SwingUtilities.invokeLater(() -> {
+//                        if (response.contains("error")) {
+//                            // If there's an error, show it in the problem holder
+//                            holder.registerProblem(method, "AI Suggestion Error: " + response, ProblemHighlightType.WARNING);
+//                        } else {
+//                            // Show the suggestion in the problem holder
+//                            holder.registerProblem(method, "AI Suggestion: " + response, ProblemHighlightType.WEAK_WARNING);
+//                        }
+//                    });
+//                }).start();  // Start the async thread
+//            }
+//        };
+//    }
+
 }

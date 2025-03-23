@@ -2,6 +2,7 @@
     <id>com.example.codechecker</id>
     <name>AI Code Checker</name>
     <version>1.0</version>
+    <description>A plugin to check and refactor long methods in Java code.</description>
     <vendor email="msaratkumar3@gmail.com">Sarath Kumar</vendor>
 
     <depends>com.intellij.modules.platform</depends>
@@ -10,5 +11,22 @@
     <extensions defaultExtensionNs="com.intellij">
 <!--        <localInspection language="JAVA" implementationClass="org.example.inspections.MyCustomInspection"/>-->
         <localInspection language="JAVA" shortName="LongMethodInspection" implementationClass="org.example.inspections.LongMethodInspection" groupName="General Inspection"/>
+        <notificationGroup id="Refactoring" displayType="BALLOON" />
     </extensions>
+
+
+
+
+
+    <actions>
+        <action id="org.example.actions.CodeRefactorAction"
+                class="org.example.actions.RefactorAction"
+                text="Refactor Code"
+                description="Refactors the selected code">
+            <!-- Add this action to the Editor's Right-Click Menu -->
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+
+
 </idea-plugin>
